@@ -27,6 +27,8 @@ function App() {
             <Route path="/" element={<ProtectedRoute/>} >
               <Route index path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/travels" element={<Travels />} />
+
             </Route>
           </Routes>
         )}
