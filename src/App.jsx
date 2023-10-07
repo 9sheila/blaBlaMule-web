@@ -7,6 +7,7 @@ import Register from './views/Register/Register'
 import Profile from './views/Profile/Profile';
 import TravelsList from './views/TravelsList/TravelsList';
 import TravelsDetails from './views/TravelsDetails/TravelsDetails';
+import UserDetails from './views/User/UserDetails';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { useAuthContext } from './contexts/AuthContext';
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/travels/details/:id" element={<TravelsDetails />} />
               <Route path="/travelsList" element={<TravelsList />} />
+              <Route path="/travel/user/:id" element={<UserDetails />} />
               
 
 
