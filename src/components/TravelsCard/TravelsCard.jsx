@@ -9,7 +9,7 @@ const formatDate = (date) => {
 };
 
 const TravelCard = (travel) => {
-    const parsedDate = formatDate(new Date(travel.date) )
+    const parsedDate = formatDate(new Date(travel.date))
     return (
         <div className="card mt-4" style={{ width: '100%' }}>
             <div className="row no-gutters">

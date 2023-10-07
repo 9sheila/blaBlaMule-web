@@ -22,7 +22,7 @@ const TravelsList = () => {
 
 
     return (
-        <div className="UsersList container">
+        <div className="TravelsList container">
             <h1>Viajes</h1>
             {travels.map((travel) => (
                 <TravelCard key={travel.id} {...travel}/>
