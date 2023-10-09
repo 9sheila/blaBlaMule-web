@@ -9,6 +9,8 @@ const initialValues = {
   name: "",
   email: "",
   password: "",
+  phoneNumber: "",
+  city: "",
 };
 
 const Register = () => {
@@ -36,6 +38,8 @@ const Register = () => {
       formData.append('name', values.name);
       formData.append('email', values.email);
       formData.append('password', values.password);
+      formData.append('phoneNumber', values.phoneNumber);
+      formData.append('city', values.city);
 
       if (values.profilePicture) {
         console.log('values.profilePicture: ', values.profilePicture);
@@ -92,6 +96,26 @@ const Register = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Enter your password"
+        />
+           <InputGroup
+          label="Phone Number"
+          name="phoneNumber"
+          type="number"
+          value={values.phoneNumber}
+          error={touched.phoneNumber && errors.phoneNumber}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Enter your phone number"
+        />
+             <InputGroup
+          label="City"
+          name="city"
+          type="text"
+          value={values.city}
+          error={touched.city && errors.city}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Enter your city"
         />
         <InputGroup
           label="Profile picture"
