@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { getUser } from "../../services/UsersService";
 import { createReview, getReview, deleteReview } from "../../services/ReviewService";
 import { useAuthContext } from "../../contexts/AuthContext";
-import InputGroup from "../../components/InputGroup/InputGroup";
 import { sendRequest, getPendingRequests, cancelRequest, getAcceptedRequest } from "../../services/RequestService";
 import { NavLink } from "react-router-dom";
 
@@ -13,16 +12,12 @@ const reviewsInitialValues = {
   message: "",
   points: "1"
 }
-const requestIntialValues = {
-    message: ""
-  } 
+
 
 const UserDetails = () => {
   const [user, setUser] = useState(null);
   const [newReview, setNewReview] = useState(reviewsInitialValues);
-  const [request, setRequest] = useState(requestIntialValues);
   const [reviewList, setReviewList] = useState([]);
-  const [showInput, setShowInput] = useState(false);
   const [requestSent, setRequestSent] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [madeRequest, setMadeRequest] = useState(false);
@@ -32,21 +27,21 @@ const UserDetails = () => {
   const { user: currentUser } = useAuthContext();
 
   useEffect(() => {
-    Promise.all([getUser(id), getReview(id), getPendingRequests()])
-      .then(([user, reviews, connected, pendingRequests ]) => {
+    Promise.all([getUser(id), getReview(id)])
+      .then(([user, reviews, connected ]) => {
         console.log(user)
         setUser(user);
         setReviewList(reviews);
         setIsConnected(connected.some(c => c.id === user.id));
 
-        const receivedRequest = pendingRequests.find(request => request.userSend === user.id);
-        const sentRequest = pendingRequests.find(request => request.userReceive === user.id);
+        // const receivedRequest = pendingRequests.find(request => request.userSend === user.id);
+        // const sentRequest = pendingRequests.find(request => request.userReceive === user.id);
 
-        if (sentRequest) {
-          setMadeRequest(true);
-        } else if (receivedRequest) {
-          setHaveRequest(true);
-        }
+        // if (sentRequest) {
+        //   setMadeRequest(true);
+        // } else if (receivedRequest) {
+        //   setHaveRequest(true);
+        // }
       })
       .catch(err => {
         console.error(err);
@@ -98,27 +93,14 @@ const UserDetails = () => {
 
 //   requests
 
-const handleShowInput = () => {
-    setShowInput(true)
-  }
 
-  const handleChangeRequest = (ev) => {
-    const key = ev.target.name;
-    const value = ev.target.value;
 
-    setRequest(prevRequest => ({
-      ...prevRequest,
-      [key]: value
-    }))
-  }
 
   const handleSubmitRequest = (event) => {
     event.preventDefault()
     sendRequest(id, request)
       .then(() => {
         console.log('request enviado')
-        setRequest(requestIntialValues)
-        setShowInput(false)
         setRequestSent(true)
         setMadeRequest(true)
       })
@@ -135,6 +117,16 @@ const handleShowInput = () => {
         console.log(err)
       })
   }
+
+  const handleConnect = () => {
+    sendRequest(id, { message: "Hola! Me gustaría conectar contigo." })
+      .then(() => {
+        console.log('Solicitud de conexión enviada');
+        setRequestSent(true);
+        setMadeRequest(true);
+      })
+      .catch((err) => console.error(err));
+  };
 
 
   return (
@@ -164,24 +156,10 @@ const handleShowInput = () => {
                     </>
                   ) : (
                     !madeRequest && (
-                      <button className="btn btn-success" onClick={handleShowInput}>Conectar con {user.name}</button>
+                      <button className="btn btn-info" onSubmit={handleSubmitRequest}  onClick={handleConnect}>Conectar con {user.name}</button>
                     )
                   )}
                 </div>
-                {showInput &&
-                  <div>
-                    <form onSubmit={handleSubmitRequest}>
-                      <InputGroup
-                        label={`Envía un mensaje a ${user.name}`}
-                        type="text"
-                        id="message"
-                        name="message"
-                        placeholder="!Hola! Me gustaría conectar contigo."
-                        value={request.message}
-                        onChange={handleChangeRequest} />
-                      <button type="submit" className="btn btn-primary">Enviar petición</button>
-                    </form>
-                  </div>}
               </>
             )}
             <div className="mt-4 profile-info-container">
@@ -207,7 +185,7 @@ const handleShowInput = () => {
               </form>
             </div>
           </div>
-          <hr   />
+          
           {/* LISTA DE RESEÑAS */}
           <div className="review-list container mt-4">
             {reviewList.length > 0 ? (
