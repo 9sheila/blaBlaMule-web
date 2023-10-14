@@ -39,8 +39,8 @@ const RequestList = () => {
                 (requestList.map((request) => (
                     <div className="mt-3" key={request.id}>
                     <div>
-                    <NavLink to={`/user/users/detail/${request.userSend.id}`}><img className="mb-3" src={request.userSend.profilePicture} alt="" width={100}/></NavLink>
-                    <NavLink style={{ textDecoration: 'none', color: 'black'}} to={`/user/users/detail/${request.userSend.id}`}><h5>{request.userSend.name}</h5></NavLink>
+                    <NavLink to={`/user/detail/${request.userSending.id}`}><img className="mb-3" src={request.userSending.profilePicture} alt="" width={100}/></NavLink>
+                    <NavLink style={{ textDecoration: 'none', color: 'black'}} to={`/user/detail/${request.userSending.id}`}><h5>{request.userSending.name}</h5></NavLink>
                     <p>{request.message}</p>
                     </div>
                     <div className="request-buttons d-flex">
