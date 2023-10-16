@@ -22,3 +22,25 @@ export const registerSchema = Yup.object({
 export const loginSchema = Yup.object({
   ...baseUserSchema
 });
+
+export const travelSchema = Yup.object({
+  weight: Yup
+  .string('Invalid weight')
+  .max(56, 'Should be up to 56kg')
+  .required('Required'),
+  date: Yup
+  .string('Invalid date')
+  .required('Required'),
+  pickUpPoint: Yup
+  .string('Invalid pick up point')
+  .required('Required'),
+  startingPoint: Yup
+  .string('Invalid starting point')
+  .required('Required'),
+  destination: Yup
+  .string('Invalid destination')
+  .required('Required'),
+
+
+
+});

@@ -29,9 +29,8 @@ const Navbar = () => {
                   <NavLink className="nav-link" to="/profile">Profile</NavLink>
                 </li>
                 <li className="nav-item">
-                  <button className="nav-link" onClick={logout}>Logout</button>
+                  <NavLink className="nav-link" onClick={logout}>Logout</NavLink>
                 </li>
-                {/* /* por ahora me va a llevar a la vista de viajes luego será un buscador */}
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/travelsList">Search</NavLink> 
                 </li>
