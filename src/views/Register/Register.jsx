@@ -63,10 +63,10 @@ const Register = () => {
   return user ? (
     <Navigate to="/profile" />
   ) : (
-    <div className="Register">
-      <h1>Register</h1>
-
-      <form onSubmit={handleSubmit}>
+    <div className="d-flex justify-content-center text-center p-2">
+      <div className="bg-white box-shadow border boder-rounded d-flex flex-column p-4 mt-4">
+       <h1>Register</h1>
+      <form onSubmit={handleSubmit} className="mb-3">
         <InputGroup
           label="Name"
           name="name"
@@ -127,10 +127,11 @@ const Register = () => {
           placeholder="Upload your profile picture"
         />
 
-        <button type="submit" className={`btn btn-${isSubmitting ? 'secondary' : 'primary'}`}>
+        <button type="submit" className={`btn btn-outline-${isSubmitting ? 'secondary' : 'info'}`}>
           {isSubmitting ? "Submitting..." : "Register"}
         </button>
       </form>
+      </div>
     </div>
   );
 }

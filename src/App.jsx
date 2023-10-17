@@ -30,7 +30,6 @@ function App() {
             <Route path="*" element={<h1>Not Found</h1>} />
 
             <Route path="/" element={<ProtectedRoute/>} >
-              <Route index path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/travels/details/:id" element={<TravelsDetails />} />
               <Route path="/travelsList" element={<TravelsList />} />

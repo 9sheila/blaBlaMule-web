@@ -1,13 +1,19 @@
+import './Home.css'
+
+
 const Home = () => {
     return (
-      <div className="Home">
-        <h1 className="text-center mt-5">BlablaMule Homepage</h1>
-        <img
-          src=""
+      <div className="d-flex flex-row justify-content-around align-items-center">
+         <img className="Imagen"
+          src="../../../public/mulita 3.jpg"
           alt="blablaMule logo"
           width="200"
-          className="round mx-auto d-block"
+          
         />
+        <div className="p-5 bg-white text-center h-100 d-flex flex-column justify-content-center left-side-shadow">
+        
+        </div>
+       
       </div>
     );
   }

@@ -1,8 +1,15 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+h1,h2,h3,h4,h5,.button, .navbar-link{
+  font-family: 'Arial', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body, html {
+  color: #3b4042 !important;
+  height: 100%;
+  margin: 0 !important;
   text-align: center;
+  padding: 0;
+  background-color: #67e9ff !important;
 }
 /*
 .logo {

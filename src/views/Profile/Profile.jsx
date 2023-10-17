@@ -11,7 +11,7 @@ const Profile = () => {
   const [acceptedRequest, setAcceptedRequest] = useState(null);
 
 
-  console.log(acceptedRequest)
+ 
 
   useEffect(() => {
     Promise.all([getRequests(), getAcceptedRequest()])

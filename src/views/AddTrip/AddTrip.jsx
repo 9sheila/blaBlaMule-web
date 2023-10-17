@@ -70,6 +70,15 @@ const AddTrip = () => {
                 onChange={handleChange}
                 placeholder="Enter the amount of weight available"
             />
+             <InputGroup
+                label="price"
+                name="price"
+                type="number"
+                value={values.price}
+                error={touched.price && errors.price}
+                onChange={handleChange}
+                placeholder="Enter the price"
+            />
             <InputGroup
                 label="pick up point"
                 name="pickUpPoint"
