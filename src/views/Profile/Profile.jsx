@@ -52,7 +52,7 @@ const Profile = () => {
         acceptedRequest?.length > 0 &&
           acceptedRequest.map(req => {
             return <div key={req.id} className="alert alert-primary alert-dismissible fade show" role="alert">
-            Your request has been accepted by {req.userReceiving?.name}
+            Your request has been accepted by {req.userReceiving?.name}. Here is the phone number to get in touch {req.userReceiving?.phoneNumber}
             <button type="button" onClick={handleDismissedReq(req.id)} className="btn-close" data-bs-dismiss="alert"/>
           </div>})
        }
