@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../utils/dateHelper';
-import './TravelCard.css'
 
-const TravelCard = (travel) => {
+const UserTravelCard = (travel) => {
     const parsedDate = formatDate(new Date(travel.date))
     return (
 
@@ -11,8 +10,8 @@ const TravelCard = (travel) => {
             <p className="card-text">{parsedDate}</p>
             <p className="card-text">{travel.user.name} </p>
             <p className="card-text">{travel.weight}kg</p>
-            <p className="card-text">1Kg{travel.price}€</p>
-            <Link to={`/travels/details/${travel.id}`}><button className="btn btn-primary">Ver más</button></Link>
+            <p className="card-text">1kg/{travel.price}€</p>
+            <Link to={`/travel/edit/${travel.id}`}><button className="btn btn-primary">Editar</button></Link>
         </div>
 
 
@@ -20,4 +19,4 @@ const TravelCard = (travel) => {
     )
 }
 
-export default TravelCard;
+export default UserTravelCard;

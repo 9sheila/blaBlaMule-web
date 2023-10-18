@@ -52,7 +52,7 @@ const Login = () => {
     <div className="Login d-flex flex-row justify-content-around align-items-center text-center" >
      
       <img className="Imagen"
-          src="../../../public/mulita 3.jpg"
+          src="/mulita 3.jpg"
           alt="blablaMule logo"
           width="200"
           

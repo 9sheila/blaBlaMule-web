@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import TravelCard from "../../components/TravelsCard/TravelsCard";
 import { getTravels } from "../../services/TravelsService";
 import AuthContext from "../../contexts/AuthContext";
 import { useContext } from "react";
+import UserTravelCard from "../../components/UserTravelCard/UserTravelCard";
 
 
 
@@ -28,7 +28,7 @@ const UserTravels = () => {
         <div className="UserTravels container">
         <h1>Viajes</h1>
         {userTravels.map((travel) => (
-            <TravelCard key={travel.id} {...travel}/>
+            <UserTravelCard key={travel.id} {...travel}/>
         ))}
     </div>
 )

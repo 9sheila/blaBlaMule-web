@@ -17,6 +17,7 @@ const TravelsList = () => {
          getTravels()
             .then(travelsRes => {
                 const filteredTravels = travelsRes.filter(travel => {
+                    console.log(formatDate(new Date(date)), formatDate(new Date(travel.date)))
                     return (startingPoint ? travel.startingPoint.toLowerCase().includes(startingPoint.toLowerCase()) : true) &&
                     (destination ? travel.destination.toLowerCase().includes(destination.toLowerCase()) : true) &&
                     (date ? formatDate(new Date(date)) === formatDate(new Date(travel.date)) : true)
@@ -32,7 +33,8 @@ const TravelsList = () => {
             <h1>Viajes</h1>
             <SearchBar onSearch={onSearch}/>
             {travels.map((travel) => (
-                <TravelCard key={travel.id} {...travel}/>
+                <TravelCard key={travel.id} {...travel} />
+                
             ))}
         </div>
     )
