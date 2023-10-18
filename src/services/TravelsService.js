@@ -8,3 +8,4 @@ export const addTrip = (travel) => http.post('/api/addTrip', travel);
 
 export const getTravel = (id) => http.get(`/api/travels/details/${id}`);
 
+export const getUserTravels = (id) => http.get(`/api/user/travels/${id}`);

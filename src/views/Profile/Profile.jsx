@@ -66,8 +66,9 @@ const Profile = () => {
           />
           <p className="fw-lighter"><span className="fw-bold">Name:</span> {user.name}</p>
           <p className="fw-lighter"><span className="fw-bold">Email:</span> {user.email}</p>
+          <Link to= {`/user/travels/${user.id}`}><button className="btn btn-light">my trips</button></Link>
         </div>
-    </div>
+   </div>
   );
 }
 

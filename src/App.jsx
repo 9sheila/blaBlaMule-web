@@ -12,6 +12,7 @@ import RequestsList from './views/User/RequestsList';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { useAuthContext } from './contexts/AuthContext';
 import AddTrip from './views/AddTrip/AddTrip'
+import UserTravels from './views/User/UserTravels'
 
 function App() {
   const { isAuthenticationFetched } = useAuthContext();
@@ -31,6 +32,7 @@ function App() {
 
             <Route path="/" element={<ProtectedRoute/>} >
               <Route path="/profile" element={<Profile />} />
+              <Route path="/user/travels/:id" element={<UserTravels />} />
               <Route path="/travels/details/:id" element={<TravelsDetails />} />
               <Route path="/travelsList" element={<TravelsList />} />
               <Route path="/requestsList" element={<RequestsList />} />
