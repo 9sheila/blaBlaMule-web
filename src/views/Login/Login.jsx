@@ -2,8 +2,7 @@ import InputGroup from '../../components/InputGroup/InputGroup';
 import { useFormik } from 'formik';
 import { loginSchema } from '../../utils/yup.schemas';
 import { login as loginRequest } from '../../services/AuthService';
-import { useNavigate, Navigate, NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useNavigate, Navigate, NavLink } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext';
 import './Login.css'
 
@@ -83,11 +82,16 @@ const Login = () => {
           onBlur={handleBlur}
           placeholder="Enter your password"
         />
-
+     
         <button type="submit" className={`btn btn-outline-${isSubmitting ? 'secondary' : 'info'}`}>
           {isSubmitting ? "Submitting..." : "Login"}
         </button>
+        <hr />
+        <p>Don't you have an account? Create one</p>
+        <NavLink to="/register"><button className="btn btn-outline-dark">register</button></NavLink>
+
       </form>
+     
       </div>
     
   );

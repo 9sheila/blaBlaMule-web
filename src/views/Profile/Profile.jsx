@@ -4,6 +4,7 @@ import { getRequests } from "../../services/RequestService";
 import { getAcceptedRequest } from "../../services/RequestService";
 import { onDismissedReq } from "../../services/RequestService";
 import { Link, useParams } from 'react-router-dom';
+import './Profile.css'
 
 const Profile = () => {
   const { user } = useAuthContext();
@@ -58,8 +59,7 @@ const Profile = () => {
        }
 
         <div className="p-3 mt-3 mx-auto" style={{ width: '18rem', display: 'grid' }}>
-          <img
-            className="round mx-auto mb-3"
+          <img className="ProfilePic mx-auto mb-3"
             src={user.profilePicture}
             alt={user.name}
             width="150"
