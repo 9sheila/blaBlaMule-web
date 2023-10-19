@@ -65,72 +65,93 @@ const Register = () => {
   ) : (
     <div className="d-flex justify-content-center text-center p-2">
       <div className="bg-white box-shadow border boder-rounded d-flex flex-column p-4 mt-4">
-       <h1>Register</h1>
-      <form onSubmit={handleSubmit} className="mb-3">
-        <InputGroup
-          label="Name"
-          name="name"
-          type="text"
-          value={values.name}
-          error={touched.name && errors.name}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Enter your name"
-        />
-        <InputGroup
-          label="Email"
-          name="email"
-          type="email"
-          value={values.email}
-          error={touched.email && errors.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Enter your email"
-        />
-        <InputGroup
-          label="Password"
-          name="password"
-          type="password"
-          value={values.password}
-          error={touched.password && errors.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Enter your password"
-        />
-           <InputGroup
-          label="Phone Number"
-          name="phoneNumber"
-          type="number"
-          value={values.phoneNumber}
-          error={touched.phoneNumber && errors.phoneNumber}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Enter your phone number"
-        />
-             <InputGroup
-          label="City"
-          name="city"
-          type="text"
-          value={values.city}
-          error={touched.city && errors.city}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Enter your city"
-        />
-        <InputGroup
-          label="Profile picture"
-          name="profilePicture"
-          type="file"
-          onChange={(event) => {
-            setFieldValue("profilePicture", event.currentTarget.files[0]);
-          }}
-          placeholder="Upload your profile picture"
-        />
+        <h1>Register</h1>
+        <form onSubmit={handleSubmit} className="d-grid">
+          <div className="row">
+            <div className="col-12 col-sm">
+              <InputGroup
+                label="Name"
+                name="name"
+                type="text"
+                value={values.name}
+                error={touched.name && errors.name}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className="col-12 col-sm">
+              <InputGroup
+                label="Email"
+                name="email"
+                type="email"
+                value={values.email}
+                error={touched.email && errors.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
 
-        <button type="submit" className={`btn btn-outline-${isSubmitting ? 'secondary' : 'info'}`}>
-          {isSubmitting ? "Submitting..." : "Register"}
-        </button>
-      </form>
+          <div className="row">
+            <div className="col-12 col-sm">
+              <InputGroup
+                label="Password"
+                name="password"
+                type="password"
+                value={values.password}
+                error={touched.password && errors.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Enter your password"
+              />
+            </div>
+            <div className="col-12 col-sm">
+              <InputGroup
+                label="Phone Number"
+                name="phoneNumber"
+                type="number"
+                value={values.phoneNumber}
+                error={touched.phoneNumber && errors.phoneNumber}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Enter your phone number"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 col-sm">
+              <InputGroup
+                label="City"
+                name="city"
+                type="text"
+                value={values.city}
+                error={touched.city && errors.city}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Enter your city"
+              />
+            </div>
+            <div className="col-12 col-sm">
+              <InputGroup
+                label="Profile picture"
+                name="profilePicture"
+                type="file"
+                onChange={(event) => {
+                  setFieldValue("profilePicture", event.currentTarget.files[0]);
+                }}
+                placeholder="Upload your profile picture"
+              />
+            </div>
+          </div>
+
+
+
+          <button type="submit" className={`btn btn-outline-${isSubmitting ? 'secondary' : 'info'}`}>
+            {isSubmitting ? "Submitting..." : "Register"}
+          </button>
+        </form>
       </div>
     </div>
   );

@@ -1,25 +1,27 @@
 import { useState, useEffect } from "react";
-import { editTravel } from "../../services/TravelsService";
-import InputGroup from "../../../components/InputGroup/InputGroup";
+import { editTravel, getTravel } from "../../services/TravelsService";
+import InputGroup from "../../components/InputGroup/InputGroup";
 import { useFormik } from "formik";
-import { editProfileSchema } from "../../../utils/yup.schemas";
+import { editTravelSchema } from "../../utils/yup.schemas";
 import { useNavigate } from "react-router-dom";
-import './EditProfile.css';
 
-const EditProfile = () => {
-    const [userData, setUserData] = useState({
-        name: user.name,
-        city: user.city,
-        phone: user.phone
+const EditTravelCard = () => {
+    const [travelData, setTravelData] = useState({
+        date: travel.date,
+        startingPoint: travel.startingPoint,
+        destination: travel.destination,
+        weight: travel.weight,
+        price: travel.price,
     });
 
     const navigate = useNavigate();
 
     const initialValues = {
-        name: user.name,
-        avatar: user.avatar,
-        city: user.city,
-        phone: user.phone
+        date: travel.date,
+        startingPoint: travel.startingPoint,
+        destination: travel.destination,
+        weight: travel.weight,
+        price: travel.price,
     }
 
     const {
@@ -37,23 +39,23 @@ const EditProfile = () => {
         initialValues: initialValues,
         validateOnBlur: true,
         validateOnChange: false,
-        validationSchema: editProfileSchema,
+        validationSchema: editTravelSchema,
         onSubmit: (values) => {
             const formData = new FormData();
-            formData.append('name', values.name);
-            formData.append('city', values.city);
-            formData.append('phone', values.phone);
+            formData.append('date', values.date);
+            formData.append('startingPoint', values.startingPoint);
+            formData.append('destination', values.destination);
+            formData.append('weight', values.weight);
+            formData.append('price', values.price);
+            
 
-            if (values.avatar) {
-                formData.append('avatar', values.avatar);
-            }
 
-            editUser(formData)
+            editTravel(formData)
                 .then(() => {
                     console.log('edited');
-                    console.log(`userData ---> ${userData}`);
-                    console.log(`user ---> ${user}`);
-                    getUser(() => (navigate('/user/profile')));
+                    console.log(`travelData ---> ${travelData}`);
+                    console.log(`travel ---> ${travel}`);
+                    getTravel(() => (navigate('/profile')));
                 })
                 .catch((err) => {
                     console.log(err);
@@ -65,72 +67,59 @@ const EditProfile = () => {
     });
 
     return (
-        <div className="edit-profile-margin">
+        <div className="edit-travelcard-margin">
             <div className="EditProfile edit-profile d-flex flex-column align-items-center container mt-4">
                 <div className="edit-profile-title">
-                    <h1>Editar perfil</h1>
+                    <h1>Editar viaje</h1>
                     <hr />
                 </div>
-                <form className="edit-profile-form" onSubmit={handleSubmit} >
+                <form className="edit-travelcard-form" onSubmit={handleSubmit} >
                     <InputGroup
                         label={
                             <>
-                                <i className="bi bi-person-fill"></i> Nombre
+                                <i className="bi bi-date-fill"></i> Fecha
                             </>
                         }
-                        name="name"
-                        type="text"
-                        value={values.name}
-                        error={touched.name && errors.name}
+                        name="date"
+                        type="date"
+                        value={values.date}
+                        error={touched.date && errors.date}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        placeholder="Harry Potter"
+                        placeholder="dd/mm/aaaa"
+                    />
+                 
+                    <InputGroup
+                        label={
+                            <>
+                                <i className="bi bi-startingPoint-fill"></i>Punto de partida
+                            </>
+                        }
+                        name="satrtingPoint"
+                        type="text"
+                        value={values.startingPoint}
+                        error={touched.startingPoint && errors.startingPoint}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Ciudad"
                     />
                     <InputGroup
                         label={
                             <>
-                                <i className="bi bi-card-image"></i> Imagen de perfil
+                                <i className="bi bi-geo-alt-fill"></i> Destino
                             </>
                         }
-                        name="avatar"
-                        type="file"
-                        onChange={(event) => {
-                            setFieldValue("avatar", event.target.files[0]);
-                        }}
-                        onBlur={handleBlur}
-                        placeholder=""
-                    />
-                    <InputGroup
-                        label={
-                            <>
-                                <i className="bi bi-telephone-fill"></i> Número de teléfono (Sólo tus contactos podrán ver el número de teléfono).
-                            </>
-                        }
-                        name="phone"
+                        name="destination"
                         type="text"
-                        value={values.phone}
-                        error={touched.phone && errors.phone}
+                        value={values.destination}
+                        error={touched.destination && errors.destination}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        placeholder="999999999"
-                    />
-                    <InputGroup
-                        label={
-                            <>
-                                <i className="bi bi-geo-alt-fill"></i> Ciudad
-                            </>
-                        }
-                        name="city"
-                        type="text"
-                        value={values.city}
-                        error={touched.city && errors.city}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        placeholder="Valencia"
+                        placeholder="destino"
                     />
                     <div className="submit-button mt-4 d-flex justify-content-center align-items-center">
                         <button type="submit" className={`btn ${isSubmitting ? 'submitting' : ''}`}>
-                            {isSubmitting ? "Cargando" : "Editar perfil"}
+                            {isSubmitting ? "Cargando" : "Editar viaje"}
                         </button>
                     </div>
                 </form>
@@ -139,4 +128,4 @@ const EditProfile = () => {
     )
 }
 
-export default EditProfile;
+export default EditTravelCard;

@@ -49,51 +49,53 @@ const Login = () => {
   return user ? (
     <Navigate to="/profile" />
   ) : (
-    <div className="Login d-flex flex-row justify-content-around align-items-center text-center" >
-     
-      <img className="Imagen"
+    <div className="Login row justify-content-around align-items-center text-center" >
+      <div className="col-3 align-content-middle">
+        <h1>Welcome to BlablaMule,</h1>
+        <img
           src="/mulita 3.jpg"
           alt="blablaMule logo"
           width="200"
-          
         />
-
-      <form onSubmit={handleSubmit} className='p-5 bg-white box-shadow border border-rounded text-center h-100 d-flex flex-column justify-content-center left-side-shadow '>
-        <h1>Welcome to BlablaMule,</h1>
-        <h2>Sign in to continue</h2>
-    <hr />
-        <InputGroup
-          label="Email"
-          name="email"
-          type="email"
-          value={values.email}
-          error={touched.email && errors.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Enter your email"
-        />
-        <InputGroup
-          label="Password"
-          name="password"
-          type="password"
-          value={values.password}
-          error={touched.password && errors.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Enter your password"
-        />
-     
-        <button type="submit" className={`btn btn-outline-${isSubmitting ? 'secondary' : 'info'}`}>
-          {isSubmitting ? "Submitting..." : "Login"}
-        </button>
-        <hr />
-        <p>Don't you have an account? Create one</p>
-        <NavLink to="/register"><button className="btn btn-outline-dark">register</button></NavLink>
-
-      </form>
-     
       </div>
-    
+
+      <div className="col-5">
+        <form onSubmit={handleSubmit} className='p-5 bg-white box-shadow border border-rounded text-center h-100 d-flex flex-column justify-content-center left-side-shadow '>
+
+          <h2>Sign in to continue</h2>
+          <hr />
+          <InputGroup
+            label="Email"
+            name="email"
+            type="email"
+            value={values.email}
+            error={touched.email && errors.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Enter your email"
+          />
+          <InputGroup
+            label="Password"
+            name="password"
+            type="password"
+            value={values.password}
+            error={touched.password && errors.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Enter your password"
+          />
+
+          <button type="submit" className={`btn btn-outline-${isSubmitting ? 'secondary' : 'info'}`}>
+            {isSubmitting ? "Submitting..." : "Login"}
+          </button>
+          <hr />
+          <p>Don't you have an account? Create one</p>
+          <NavLink to="/register"><button className="btn btn-outline-dark">register</button></NavLink>
+
+        </form>
+
+      </div>
+    </div>
   );
 }
 

@@ -1,6 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
 h1,h2,h3,h4,h5,.button, .navbar-link{
-  font-family: 'Arial', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Carter One';
+}
+
+h1{
+  font-size: 2em !important;
+}
+h2{
+  font-size: 1.5em;
 }
 
 body, html {
@@ -11,6 +19,7 @@ body, html {
   padding: 0;
   background-color: #67e9ff !important;
 }
+
 /*
 .logo {
   height: 6em;

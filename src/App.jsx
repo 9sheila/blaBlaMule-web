@@ -11,17 +11,18 @@ import UserDetails from './views/User/UserDetails';
 import RequestsList from './views/User/RequestsList';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { useAuthContext } from './contexts/AuthContext';
-import AddTrip from './views/AddTrip/AddTrip'
-import UserTravels from './views/User/UserTravels'
+import AddTrip from './views/AddTrip/AddTrip';
+import UserTravels from './views/User/UserTravels';
+import EditTravelCard from './views/User/EditTravelCard';
 
 function App() {
   const { isAuthenticationFetched } = useAuthContext();
 
   return (
-    <div className='App'>
+    <div className='w-100 h-100'>
       <Navbar />
 
-      <div className="container my-3">
+      <div className="p-3">
         {!isAuthenticationFetched ? (
           <p>Loading...</p>
         ) : (
@@ -38,6 +39,7 @@ function App() {
               <Route path="/requestsList" element={<RequestsList />} />
               <Route path="/addTrip" element={<AddTrip />} />
               <Route path="/travel/user/:id" element={<UserDetails />} />
+              <Route path="/travel/edit/id" element={<EditTravelCard />} />
               
 
 

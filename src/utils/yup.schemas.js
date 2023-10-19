@@ -41,6 +41,22 @@ export const travelSchema = Yup.object({
   .string('Invalid destination')
   .required('Required'),
 
+});
 
-
+export const editTravelSchema = Yup.object({
+  startingPoint: Yup
+    .string('Punto de partida inválido')
+    .required('El punto de partida es requerido'),
+  destination: Yup
+    .string('Destino inválid')
+    .required('El destino es requerido'),
+  date: Yup
+    .string('Fecha inválida')
+    .required('La fecha es requerida'),
+  weight: Yup
+    .string('Peso inválido')
+    .required('El peso es requerido'),
+    price: Yup
+    .string('Precio inválido')
+    .required('El precio es requerido'),
 });
