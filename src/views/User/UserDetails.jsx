@@ -183,7 +183,7 @@ const UserDetails = () => {
                 </div>
                 <div className="mb-3">
                   <label id="review-score" className="form-label">Valoración</label>
-                  <input onChange={handleChangeReview} id="review-points" type="number" name="points" className="form-control" value={newReview.points} />
+                  <input onChange={handleChangeReview} id="star1" type="radio" name="points" className="form-control" value={newReview.points} />
                 </div>
                 <button type="submit" className="btn btn-primary">Enviar</button>
               </form>
