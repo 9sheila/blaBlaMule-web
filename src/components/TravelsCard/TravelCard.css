@@ -1,3 +1,77 @@
-.Card-body{
-    margin: none;
+/* Estilos para la tarjeta */
+.card-link {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto de la tarjeta */
+  }
+.card {
+    width: 500px; /* Ajusta el ancho según tus necesidades */
+    height: max-content;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s; /* Agrega una transición para el efecto de levantamiento */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave para el efecto de levantamiento */
 }
+  
+  
+  /* Estilos para la parte superior de la tarjeta */
+  .card .card-top {
+    padding: 10px;
+    background-color: #ffffff; /* Color de fondo para la parte superior */
+    color: #000000; /* Color de texto para la parte superior */
+    text-align: center;
+  }
+  
+  .card .card-top p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  
+  /* Estilos para la esquina inferior derecha de la tarjeta */
+  .card .card-bottom {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end!important;
+    align-items: flex-end!important;
+  }
+  
+  .card .card-bottom p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  
+  /* Estilos para el botón "Ver Detalles" */
+  .card .card-bottom .btn {
+    background-color: #27ae60; /* Color de fondo para el botón */
+    color: #fff; /* Color de texto para el botón */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .card .card-bottom .btn:hover {
+    background-color: #1e8449; /* Color de fondo al pasar el mouse sobre el botón */
+  }
+  .location {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .location h3 {
+    margin: 0;
+    font-size: 16px;
+ 
+  }
+  .card:hover {
+    transform: scale(1.03); /* Escala la tarjeta en un 5% cuando el cursor está sobre ella */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); 
+  }

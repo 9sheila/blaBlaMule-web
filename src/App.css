@@ -11,14 +11,6 @@ h2{
   font-size: 1.5em;
 }
 
-body, html {
-  color: #3b4042 !important;
-  height: 100%;
-  margin: 0 !important;
-  text-align: center;
-  padding: 0;
-  background-color: #67e9ff !important;
-}
 
 /*
 .logo {

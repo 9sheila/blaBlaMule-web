@@ -136,9 +136,17 @@ const UserDetails = () => {
       ) : (
         <>
           <div className="UserDetail detail-container container">
-            <div className="mt-5">
-              <img src={user.profilePicture} alt="" width="300" />
+            <div className="row">
+            <div className="col">
+              <img className="d-block " src={user.profilePicture} alt="" width="200" />
             </div>
+            <div className="col">
+              <h1>{user.name}</h1>
+              <p>{user.city}</p>
+            </div>
+            </div>
+           
+ 
             {isConnected ? (
               <>
                 <button className="btn btn-secondary mt-4">Enviar solicitud a {user.name}</button>
@@ -162,11 +170,7 @@ const UserDetails = () => {
                 </div>
               </>
             )}
-            <div className="mt-4 profile-info-container">
-              <h1>{user.name}</h1>
-              <p>{user.description}</p>
-              <p>{user.city}</p>
-            </div>
+         
  
             <hr />
     
@@ -175,7 +179,7 @@ const UserDetails = () => {
                 <h4>Deja una reseña sobre {user.name}</h4>
                 <div className="mb-3">
                   <label id="review-message" className="form-label">Comentario</label>
-                  <input onChange={handleChangeReview} id="review-message" type="text" name="message" className="form-control" value={newReview.message} placeholder="Comentario" />
+                  <textarea onChange={handleChangeReview} id="review-message" type="text" name="message" className="form-control" value={newReview.message} placeholder="Comentario" />
                 </div>
                 <div className="mb-3">
                   <label id="review-score" className="form-label">Valoración</label>

@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { logout } from '../../stores/AccessTokenStore';
+import './Navbar.css';
 
 const Navbar = () => {
   const { user } = useAuthContext();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="Navbar navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <NavLink className="navbar-brand" to="/">BlaBlaMule</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

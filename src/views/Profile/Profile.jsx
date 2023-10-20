@@ -41,7 +41,6 @@ const Profile = () => {
 
   return (
     <div>
-      <h1>Profile</h1>
       <div>
         {connections.length > 0 && (
           <div className="alert alert-primary" role="alert">
@@ -58,17 +57,23 @@ const Profile = () => {
           </div>})
        }
 
-        <div className="p-3 mt-3 mx-auto" style={{ width: '18rem', display: 'grid' }}>
-          <img className="ProfilePic mx-auto mb-3"
+        <div className="profile-container" >
+
+          <img className="profile-picture"
             src={user.profilePicture}
             alt={user.name}
             width="150"
           />
-          <p className="fw-lighter"><span className="fw-bold">Name:</span> {user.name}</p>
-          <p className="fw-lighter"><span className="fw-bold">Email:</span> {user.email}</p>
-          <Link to= {`/user/travels/${user.id}`}><button className="btn btn-light">my trips</button></Link>
+        
+          
+         <p className="profile-name"> {user.name}</p>
+          <p className="profile-email"> {user.email}</p>
+          <Link to= {`/user/travels/${user.id}`}><button className="profile-button">my trips</button></Link>
+         </div>
+        
+         
         </div>
-   </div>
+  
   );
 }
 

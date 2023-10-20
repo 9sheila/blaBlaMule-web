@@ -68,8 +68,8 @@ const EditTravelCard = () => {
 
     return (
         <div className="edit-travelcard-margin">
-            <div className="EditProfile edit-profile d-flex flex-column align-items-center container mt-4">
-                <div className="edit-profile-title">
+            <div className="EditTravel edit-travel d-flex flex-column align-items-center container mt-4">
+                <div className="edit-travel-title">
                     <h1>Editar viaje</h1>
                     <hr />
                 </div>
@@ -95,7 +95,7 @@ const EditTravelCard = () => {
                                 <i className="bi bi-startingPoint-fill"></i>Punto de partida
                             </>
                         }
-                        name="satrtingPoint"
+                        name="startingPoint"
                         type="text"
                         value={values.startingPoint}
                         error={touched.startingPoint && errors.startingPoint}
@@ -106,7 +106,7 @@ const EditTravelCard = () => {
                     <InputGroup
                         label={
                             <>
-                                <i className="bi bi-geo-alt-fill"></i> Destino
+                                <i className="bi bi-destination-alt-fill"></i> Destino
                             </>
                         }
                         name="destination"

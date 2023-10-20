@@ -1,0 +1,5 @@
+.TravelsList-container {
+  display: flex;
+  flex-direction: column; /* Apila las tarjetas verticalmente */
+  align-items: center; /* Centra verticalmente las tarjetas */
+}

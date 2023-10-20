@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchBar.css';
 
 const SearchBar = ({ onSearch }) => {
   const [startingPoint, setStartingPoint] = useState('');
@@ -10,25 +11,25 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <input
+    <div className='search-container'>
+      <input className='search-input'
         type="text"
         placeholder="Starting Point"
         value={startingPoint}
         onChange={(e) => setStartingPoint(e.target.value)}
       />
-      <input
+      <input className='search-input'
         type="text"
         placeholder="Destination"
         value={destination}
         onChange={(e) => setDestination(e.target.value)}
       />
-      <input
+      <input className='search-input'
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button className="search-button" onClick={handleSearch}>Search</button>
     </div>
   );
 };

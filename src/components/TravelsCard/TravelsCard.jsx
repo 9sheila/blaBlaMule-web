@@ -5,15 +5,20 @@ import './TravelCard.css'
 const TravelCard = (travel) => {
     const parsedDate = formatDate(new Date(travel.date))
     return (
-
-        <div className="Card-body card m-3 d-flex text-align-center justify-content-center" style={{ width: '80%' }}>
-            <h3 className="card-title">{travel.startingPoint}-{travel.destination}</h3>
+        <Link to={`/travels/details/${travel.id}`} className="card-link">
+        <div className="card">
+           <div className='card-top'>
+            <div className='location'> 
+           <h3 className="card-title">{travel.startingPoint}-{travel.destination}</h3>
+            </div>
             <p className="card-text">{parsedDate}</p>
-            <p className="card-text">{travel.user.name} </p>
+            </div>
+            <div className='card-bottom'>
             <p className="card-text">{travel.weight}kg</p>
             <p className="card-text">1Kg{travel.price}€</p>
-            <Link to={`/travels/details/${travel.id}`}><button className="btn btn-primary">Ver más</button></Link>
+            </div>
         </div>
+        </Link>
 
 
 

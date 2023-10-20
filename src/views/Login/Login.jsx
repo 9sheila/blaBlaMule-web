@@ -49,21 +49,13 @@ const Login = () => {
   return user ? (
     <Navigate to="/profile" />
   ) : (
-    <div className="Login row justify-content-around align-items-center text-center" >
-      <div className="col-3 align-content-middle">
-        <h1>Welcome to BlablaMule,</h1>
-        <img
-          src="/mulita 3.jpg"
-          alt="blablaMule logo"
-          width="200"
-        />
-      </div>
+    <div className="Login" >
+      <div className="bg-white box-shadow border boder-rounded p-4 mt-4">
+        <form onSubmit={handleSubmit} >
 
-      <div className="col-5">
-        <form onSubmit={handleSubmit} className='p-5 bg-white box-shadow border border-rounded text-center h-100 d-flex flex-column justify-content-center left-side-shadow '>
-
-          <h2>Sign in to continue</h2>
+          <h2>Sign in</h2>
           <hr />
+          <div classname="Form">
           <InputGroup
             label="Email"
             name="email"
@@ -91,7 +83,7 @@ const Login = () => {
           <hr />
           <p>Don't you have an account? Create one</p>
           <NavLink to="/register"><button className="btn btn-outline-dark">register</button></NavLink>
-
+          </div>
         </form>
 
       </div>

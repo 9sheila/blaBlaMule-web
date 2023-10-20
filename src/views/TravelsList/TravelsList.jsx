@@ -3,6 +3,7 @@ import TravelCard from "../../components/TravelsCard/TravelsCard";
 import { getTravels } from "../../services/TravelsService";
 import SearchBar from "../SearchBar/SearchBar";
 import { formatDate } from "../../utils/dateHelper";
+import './TravelsList.css'
 
 const TravelsList = () => {
     const [travels, setTravels] = useState([])
@@ -29,14 +30,16 @@ const TravelsList = () => {
 
 
     return (
-        <div className="TravelsList container">
+    
+               <div className="TravelsList-container">
             <h1>Viajes</h1>
             <SearchBar onSearch={onSearch}/>
             {travels.map((travel) => (
                 <TravelCard key={travel.id} {...travel} />
                 
             ))}
-        </div>
+             </div>
+    
     )
 }
 

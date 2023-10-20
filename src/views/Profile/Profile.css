@@ -1,6 +1,41 @@
-.ProfilePic {
+.profile-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-picture {
     width: 100px;
     height: 100px;
-    border-radius: 100%;
-    margin-left: 20px;
-}
+    border-radius: 50%;
+    object-fit: cover; /* Asegura que la imagen se ajuste a la forma redonda */
+  }
+  
+  .profile-name {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .profile-email {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .profile-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .profile-button:hover {
+    background-color: #1e6dc1;
+  }
+  

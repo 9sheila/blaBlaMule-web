@@ -1,0 +1,37 @@
+/* Estilos para el contenedor del buscador */
+.search-container {
+    text-align: center; /* Centra horizontalmente en la página */
+    margin: 20px 0; /* Espaciado superior e inferior */
+  }
+  
+  /* Estilos para el contenedor del buscador y sus elementos */
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilos para los campos de entrada del buscador */
+  .search-input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  /* Estilos para el botón del buscador */
+  .search-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el botón al pasar el cursor */
+  .search-button:hover {
+    background-color: #2771b0;
+  }
+  

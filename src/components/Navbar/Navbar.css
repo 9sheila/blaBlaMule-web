@@ -1,0 +1,7 @@
+.Navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que la navbar esté en el frente de otros elementos */
+  }
+  
