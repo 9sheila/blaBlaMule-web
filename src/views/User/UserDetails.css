@@ -1,0 +1,23 @@
+.rating {
+    display: flex;
+    flex-direction: row-reverse; /* Invierte el orden de las estrellas para que 5 esté a la izquierda */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rating input {
+    display: none; /* Oculta los input de radio */
+  }
+  
+  .rating label {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    background-image: url('../../../public/star.jpg'); /* Utiliza una imagen de estrella o puedes usar caracteres Unicode para las estrellas */
+    background-size: cover;
+  }
+  
+  .rating input:checked ~ label {
+    background-image: url('../../../public/stars.jpg'); /* Utiliza una imagen de estrella rellena o el estilo deseado cuando se selecciona */
+  }
+  

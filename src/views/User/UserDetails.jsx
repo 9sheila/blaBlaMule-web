@@ -5,6 +5,18 @@ import { createReview, getReview, deleteReview } from "../../services/ReviewServ
 import { useAuthContext } from "../../contexts/AuthContext";
 import { sendRequest, getPendingRequests, cancelRequest, getAcceptedRequest } from "../../services/RequestService";
 import { NavLink } from "react-router-dom";
+import './UserDetails.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+
+library.add(fas, far);
+
+
+
+
+
 
 
 
@@ -16,19 +28,21 @@ const reviewsInitialValues = {
 
 const UserDetails = () => {
   const [user, setUser] = useState(null);
-  const [newReview, setNewReview] = useState(reviewsInitialValues);
+  // const [newReview, setNewReview] = useState(reviewsInitialValues);
   const [reviewList, setReviewList] = useState([]);
   const [requestSent, setRequestSent] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [madeRequest, setMadeRequest] = useState(false);
   const [haveRequest, setHaveRequest] = useState(false);
   const [acceptedRequest, setAcceptedRequest] = useState(null);
+  const [rating, setRating] = useState(0);
+  const [newReview, setNewReview] = useState({ message: "", points: 1 });
   const { id } = useParams();
   const { user: currentUser } = useAuthContext();
 
   useEffect(() => {
     Promise.all([getUser(id), getReview(id)])
-      .then(([user, reviews, connected ]) => {
+      .then(([user, reviews, connected]) => {
         console.log(user)
         setUser(user);
         setReviewList(reviews);
@@ -48,7 +62,7 @@ const UserDetails = () => {
       });
   }, [id]);
 
-//    reviews  
+  //    reviews  
 
   const handleChangeReview = (ev) => {
     const key = ev.target.name;
@@ -59,25 +73,24 @@ const UserDetails = () => {
       [key]: value
     }))
   }
-
   const handleSubmitReview = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     createReview({
-        ...newReview,
-        owner: currentUser.id,
-        user: user.id
+      ...newReview,
+      owner: currentUser.id,
+      user: user.id,
     })
       .then(() => {
-        console.log('review creado')
-        setNewReview(reviewsInitialValues)
+        console.log('Reseña creada con puntuación:', newReview.points); // Debería mostrar la puntuación correcta
+        setNewReview(reviewsInitialValues);
         getReview(id)
-          .then(reviews => {
-            setReviewList(reviews)
-          })
+          .then((reviews) => {
+            setReviewList(reviews);
+          });
       })
-      .catch(err => console.error(err))
-  }
+      .catch((err) => console.error(err));
+  };
 
   const handleDeleteReview = (reviewId) => {
     deleteReview(reviewId)
@@ -90,8 +103,17 @@ const UserDetails = () => {
         console.log(err)
       })
   }
+  const handleStarClick = (event) => {
+    const selectedRating = parseInt(event.currentTarget.getAttribute('data-rating'));
+  // Resto del código
+    setNewReview((prevReview) => ({
+      ...prevReview,
+      points: selectedRating, // Actualiza la puntuación en newReview
+    }));
+    console.log(selectedRating);
+  };
 
-//   requests
+  //   requests
 
 
 
@@ -137,16 +159,16 @@ const UserDetails = () => {
         <>
           <div className="UserDetail detail-container container">
             <div className="row">
-            <div className="col">
-              <img className="d-block " src={user.profilePicture} alt="" width="200" />
+              <div className="col">
+                <img className="d-block " src={user.profilePicture} alt="" width="200" />
+              </div>
+              <div className="col">
+                <h1>{user.name}</h1>
+                <p>{user.city}</p>
+              </div>
             </div>
-            <div className="col">
-              <h1>{user.name}</h1>
-              <p>{user.city}</p>
-            </div>
-            </div>
-           
- 
+
+
             {isConnected ? (
               <>
                 <button className="btn btn-secondary mt-4">Enviar solicitud a {user.name}</button>
@@ -164,32 +186,77 @@ const UserDetails = () => {
                     </>
                   ) : (
                     !madeRequest && (
-                      <button className="btn btn-info" onSubmit={handleSubmitRequest}  onClick={handleConnect}>Conectar con {user.name}</button>
+                      <button className="btn btn-info" onSubmit={handleSubmitRequest} onClick={handleConnect}>Conectar con {user.name}</button>
                     )
                   )}
                 </div>
               </>
             )}
-         
- 
+
+
             <hr />
-    
+
             <div className="review-form">
               <form onSubmit={handleSubmitReview}>
                 <h4>Deja una reseña sobre {user.name}</h4>
+               
+                <div className="star-rating">
+  <FontAwesomeIcon
+    icon={rating >= 1 ? ["fas", "star"]  :  ["far", "star"]}
+    alt= "star1"
+    data-rating="1"
+    onClick={handleStarClick}
+    className={`star ${rating >= 1 ? 'selected' : ''}`}
+    value={rating === 1 ? "1" : ""}
+    
+  />
+  <FontAwesomeIcon
+    icon={rating >= 2 ? ["fas", "star"]  :  ["far", "star"]}
+    alt= "star2"
+    data-rating="2"
+    onClick={handleStarClick}
+    className={`star ${rating >= 2 ? 'selected' : ''}`}
+    value={rating === 2 ? "2" : ""}
+  
+  />
+  <FontAwesomeIcon
+    icon={rating >= 3 ? ["fas", "star"]  :  ["far", "star"]}
+    alt= "star3"
+    data-rating="3"
+    onClick={handleStarClick}
+    className={`star ${rating >= 3 ? 'selected' : ''}`}
+    value={rating === 3 ? "3" : ""}
+ 
+  />
+  <FontAwesomeIcon
+    icon={rating >= 4 ? ["fas", "star"]  :  ["far", "star"]}
+    alt= "star4"
+    data-rating="4"
+    onClick={handleStarClick}
+    className={`star ${rating >= 4 ? 'selected' : ''}`}
+    value={rating === 4 ? "4" : ""}
+    
+  />
+  <FontAwesomeIcon
+    icon={rating >= 5 ? ["fas", "star"]  :  ["far", "star"]}
+    alt= "star5"
+    data-rating="5"
+    onClick={handleStarClick}
+    className={`star ${rating >= 5 ? 'selected' : ''}`}
+    value={rating === 5 ? "5" : ""}
+    
+  />
+</div>
+
                 <div className="mb-3">
                   <label id="review-message" className="form-label">Comentario</label>
                   <textarea onChange={handleChangeReview} id="review-message" type="text" name="message" className="form-control" value={newReview.message} placeholder="Comentario" />
-                </div>
-                <div className="mb-3">
-                  <label id="review-score" className="form-label">Valoración</label>
-                  <input onChange={handleChangeReview} id="star1" type="radio" name="points" className="form-control" value={newReview.points} />
                 </div>
                 <button type="submit" className="btn btn-primary">Enviar</button>
               </form>
             </div>
           </div>
-          
+
           {/* LISTA DE RESEÑAS */}
           <div className="review-list container mt-4">
             {reviewList.length > 0 ? (
