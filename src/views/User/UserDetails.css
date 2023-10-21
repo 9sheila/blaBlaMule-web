@@ -20,4 +20,151 @@
   .rating input:checked ~ label {
     background-image: url('../../../public/stars.jpg'); /* Utiliza una imagen de estrella rellena o el estilo deseado cuando se selecciona */
   }
+  .star.selected {
+    color: #ffdd00; /* Color de las estrellas seleccionadas */
+  }
+  .UserDetail {
+   
+    padding: 20px;
+  }
   
+  .detail-container {
+    
+    padding: 20px;
+    border: 1px  #4792a98c;
+    border-radius: 5px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .review-form {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .star-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .star {
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-right: 10px;
+  }
+  
+  .star.selected {
+    color: #ffdd00;
+  }
+  
+  #review-message {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    resize: vertical;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo de la tarjeta de reseña */
+.review-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Ajusta el ancho según tus preferencias */
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo para la imagen de perfil */
+.review-card img.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Estilo para el nombre del usuario */
+.review-card .user-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilo para la fecha */
+.review-card .review-date {
+  color: #777;
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+/* Estilo para el contenido de la reseña */
+.review-card .review-content {
+  margin-bottom: 10px;
+}
+
+/* Estilo para el botón de borrar */
+.review-card .delete-button {
+  background-color: #e74c3c; /* Cambia el color del botón según tus preferencias */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Estilo cuando se coloca el puntero sobre el botón de borrar */
+.review-card .delete-button:hover {
+  background-color: #c0392b; /* Cambia el color de resaltado */
+}
+
+/* Alineación del botón de borrar al centro */
+.review-card .delete-button-container {
+  text-align: center;
+}

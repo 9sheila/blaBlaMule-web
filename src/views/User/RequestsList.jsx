@@ -28,8 +28,7 @@ const RequestList = () => {
     }
 
     return(
-        <div className="RequestList container mt-4">
-            <h1>Requests List</h1>
+        <div className="RequestList">
             <div className="request-container">
                 <h3>Solicitudes</h3>
 

@@ -55,7 +55,7 @@ const Login = () => {
 
           <h2>Sign in</h2>
           <hr />
-          <div classname="Form">
+          <div className="Form">
           <InputGroup
             label="Email"
             name="email"

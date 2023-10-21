@@ -48,9 +48,11 @@ const AddTrip = () => {
 
     return (
     <div className="AddTrip">
+        
+
+        <div className="d-flex justify-content-center text-center p-2">
+        <div className="bg-white box-shadow border boder-rounded d-flex flex-column p-4 mt-4">
         <h1>Add Trip</h1>
-
-
         <form onSubmit={handleSubmit}>
                 <InputGroup
                 label="date"
@@ -61,6 +63,8 @@ const AddTrip = () => {
                 onChange={handleChange}
                 placeholder="Enter the date"
             />
+            <div className="row">
+                <div className="col">
             <InputGroup
                 label="weight"
                 name="weight"
@@ -70,6 +74,8 @@ const AddTrip = () => {
                 onChange={handleChange}
                 placeholder="Enter the amount of weight available"
             />
+            </div>
+            <div className="col">
              <InputGroup
                 label="price"
                 name="price"
@@ -79,6 +85,8 @@ const AddTrip = () => {
                 onChange={handleChange}
                 placeholder="Enter the price"
             />
+            </div>
+            </div>
             <InputGroup
                 label="pick up point"
                 name="pickUpPoint"
@@ -118,6 +126,8 @@ const AddTrip = () => {
                 {isSubmitting ? "Submitting..." : "Add Trip"}
             </button>
         </form>
+        </div>
+    </div>
     </div>
     );
 }

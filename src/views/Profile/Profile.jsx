@@ -44,7 +44,7 @@ const Profile = () => {
       <div>
         {connections.length > 0 && (
           <div className="alert alert-primary" role="alert">
-            You have  <Link to={'/requestsList'} className="alert-link">requests</Link>. Give it a click too see them.
+            Te han mandado  <Link to={'/requestsList'} className="alert-link">solicitudes</Link>.Hazle click! para verlas.
           </div>
         )}
       </div>
@@ -52,7 +52,7 @@ const Profile = () => {
         acceptedRequest?.length > 0 &&
           acceptedRequest.map(req => {
             return <div key={req.id} className="alert alert-primary alert-dismissible fade show" role="alert">
-            Your request has been accepted by {req.userReceiving?.name}. Here is the phone number to get in touch {req.userReceiving?.phoneNumber}
+            Tu solicitud ha sido aceptada por {req.userReceiving?.name}. Aquí tienes el número de telefono para ponerte en contacto +34{req.userReceiving?.phoneNumber}
             <button type="button" onClick={handleDismissedReq(req.id)} className="btn-close" data-bs-dismiss="alert"/>
           </div>})
        }

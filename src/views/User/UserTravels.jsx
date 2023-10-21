@@ -3,6 +3,7 @@ import { getTravels } from "../../services/TravelsService";
 import AuthContext from "../../contexts/AuthContext";
 import { useContext } from "react";
 import UserTravelCard from "../../components/UserTravelCard/UserTravelCard";
+import './UserTravels.css'
 
 
 
@@ -25,8 +26,8 @@ const UserTravels = () => {
    
 
     return (
-        <div className="UserTravels container">
-        <h1>Viajes</h1>
+        <div className="userTravels">
+        <h1>Mis viajes</h1>
         {userTravels.map((travel) => (
             <UserTravelCard key={travel.id} {...travel}/>
         ))}

@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { formatDate } from '../../utils/dateHelper';
 
 library.add(fas, far);
 
@@ -258,17 +260,17 @@ const UserDetails = () => {
           </div>
 
           {/* LISTA DE RESEÑAS */}
-          <div className="review-list container mt-4">
+          <div className="review-list container mb-3">
             {reviewList.length > 0 ? (
               <>
                 <h4>Reseñas acerca de {user.name}</h4>
                 {reviewList.map((review) => (
-                  <div key={review.id} className="review-container mt-4">
-                    <img src={review.owner.profilePicture} alt="" width="100" />
-                    <p>{review.owner.name}</p>
-                    <p>{review.message}</p>
-                    <p>{review.points}</p>
-                    <p>{review.date}</p>
+                  <div key={review.id} className="review-card">
+                    <img className="profile-picture"  src={review.owner.profilePicture} alt="" width="100" />
+                    <p className="user-name">{review.owner.name}</p>
+                    <p className="review-date">{ formatDate(new Date(review.date))}</p>
+                    <p className="review-content">{review.message}</p>
+                    <p>{review.points}<FontAwesomeIcon icon={faStar} style={{color: "#ffea00",}} /></p>
                     {review.owner.id === currentUser.id ? (
                       <button className="btn btn-danger" onClick={() => handleDeleteReview(review.id)}>Borrar</button>
                     ) : (

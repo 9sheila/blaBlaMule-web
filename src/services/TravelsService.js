@@ -10,4 +10,4 @@ export const getTravel = (id) => http.get(`/api/travels/details/${id}`);
 
 export const getUserTravels = (id) => http.get(`/api/user/travels/${id}`);
 
-export const editTravel = (id, travel) => http.patch(`/api/travel/edit/${id}`, travel);
+export const editTravel = (body) => http.patch(`/api/travel/edit`, body);

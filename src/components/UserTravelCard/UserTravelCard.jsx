@@ -11,7 +11,7 @@ const UserTravelCard = (travel) => {
             <p className="card-text">{travel.user.name} </p>
             <p className="card-text">{travel.weight}kg</p>
             <p className="card-text">1kg/{travel.price}€</p>
-            <Link to={`/travel/edit/${travel.id}`}><button className="btn btn-primary">Editar</button></Link>
+            <Link to={`/travel/edit`}><button className="btn btn-primary">Editar</button></Link>
         </div>
 
 

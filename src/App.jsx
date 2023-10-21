@@ -39,7 +39,7 @@ function App() {
               <Route path="/requestsList" element={<RequestsList />} />
               <Route path="/addTrip" element={<AddTrip />} />
               <Route path="/travel/user/:id" element={<UserDetails />} />
-              <Route path="/travel/edit/id" element={<EditTravelCard />} />
+              <Route path="/travel/edit" element={<EditTravelCard />} />
               
 
 
