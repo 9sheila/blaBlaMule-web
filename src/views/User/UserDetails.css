@@ -124,12 +124,7 @@
 }
 
 /* Estilo para la imagen de perfil */
-.review-card img.profile-picture {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
+
 
 /* Estilo para el nombre del usuario */
 .review-card .user-name {
@@ -167,4 +162,11 @@
 /* Alineación del botón de borrar al centro */
 .review-card .delete-button-container {
   text-align: center;
+}
+.profile-picture {
+  border-radius: 100%;
+  border: 2px solid white; /* Borde blanco de 2 píxeles */
+  width: 100px; /* Ajusta el ancho y alto según tus necesidades */
+  height: 100px; /* Ajusta el ancho y alto según tus necesidades */
+  object-fit: cover; /* Escala y recorta la imagen para que llene el círculo */
 }

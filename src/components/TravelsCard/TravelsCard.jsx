@@ -14,8 +14,7 @@ const TravelCard = (travel) => {
             <p className="card-text">{parsedDate}</p>
             </div>
             <div className='card-bottom'>
-            <p className="card-text">{travel.weight}kg</p>
-            <p className="card-text">1Kg{travel.price}€</p>
+            <p className="card-text">1Kg/{travel.price}€</p>
             </div>
         </div>
         </Link>

@@ -266,7 +266,7 @@ const UserDetails = () => {
                 <h4>Reseñas acerca de {user.name}</h4>
                 {reviewList.map((review) => (
                   <div key={review.id} className="review-card">
-                    <img className="profile-picture"  src={review.owner.profilePicture} alt="" width="100" />
+                    <img className="profile-picture"  src={review.owner.profilePicture} alt="imagen redonda" width="100" />
                     <p className="user-name">{review.owner.name}</p>
                     <p className="review-date">{ formatDate(new Date(review.date))}</p>
                     <p className="review-content">{review.message}</p>

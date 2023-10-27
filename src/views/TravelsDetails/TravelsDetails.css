@@ -1,0 +1,50 @@
+/* Estilo para el contenedor de información de viaje */
+.travel-info-container {
+    background-color: #f0f0f0; /* Cambia el color de fondo según tus preferencias */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    /* Centro el contenido verticalmente y horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilo para el título de la fecha */
+  .travel-info-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Estilo para la descripción de la ruta */
+  .travel-info-container p.route-description {
+    font-size: 18px;
+    margin: 5px 0;
+    text-align: center; /* Centro el texto horizontalmente */
+  }
+  
+  /* Estilo para la información de peso */
+  .travel-info-container p.weight-info {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  /* Estilo para el enlace al perfil del usuario */
+  .travel-info-container a.user-link {
+    text-decoration: none;
+    color: #007bff; /* Cambia el color del enlace según tus preferencias */
+    font-weight: bold;
+    text-align: center; /* Centro el texto horizontalmente */
+  }
+  
+  /* Estilo cuando se coloca el puntero sobre el enlace del usuario */
+  .travel-info-container a.user-link:hover {
+    text-decoration: underline;
+  }
+  
